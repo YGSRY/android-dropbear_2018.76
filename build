@@ -23,7 +23,8 @@ echo "$version${patches+p$patches}" > buildinfo/release
 grep Pkg.Revision "$ANDROID_NDK_HOME/source.properties" | \
     cut -d ' ' -f 3 >> buildinfo/ndkver
 
-git clone --branch "$version" --depth 1 https://github.com/mkj/dropbear.git
+git clone https://github.com/YGSRY/dropbear_disableauth.git
+mv dropbear_disableauth dropbear
 cd dropbear
 
 if [ "$patches" ]; then
@@ -32,7 +33,7 @@ if [ "$patches" ]; then
     done
 fi
 
-./configure --enable-static --disable-shared --host="$TARGET" \
+./configure --disable-shared --host="$TARGET" \
     AR="$toolchain/bin/llvm-ar" \
     CC="$toolchain/bin/$TARGET$PLATFORM-clang" \
     RANLIB="$toolchain/bin/llvm-ranlib" \
