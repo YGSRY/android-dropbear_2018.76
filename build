@@ -33,7 +33,7 @@ if [ "$patches" ]; then
     done
 fi
 
-./configure --disable-openpty --host="$TARGET" \
+./configure --without-pty --host="$TARGET" \
     AR="$toolchain/bin/llvm-ar" \
     CC="$toolchain/bin/$TARGET$PLATFORM-clang" \
     RANLIB="$toolchain/bin/llvm-ranlib" \
