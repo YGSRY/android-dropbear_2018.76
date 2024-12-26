@@ -16,6 +16,8 @@
 // Build all but the most verbose level of trace messages into the binaries
 #define DEBUG_TRACE 4
 
+#define COMPAT_USER_SHELLS "/system/bin/sh"
+
 #define DROPBEAR_DEFPORT "33284"
 #define DSS_PRIV_FILENAME "dropbear_dss_host_key"
 #define RSA_PRIV_FILENAME "dropbear_rsa_host_key"
